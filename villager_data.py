@@ -105,7 +105,7 @@ def all_names_by_hobby(filename):
 
     return names_by_hobby
 
-print(all_names_by_hobby("villagers.csv"))
+# all_names_by_hobby("villagers.csv")
 
 
 def all_data(filename):
@@ -124,9 +124,16 @@ def all_data(filename):
     all_data = []
 
     # TODO: replace this with your code
+    data = open(filename)
+    for line in data:
+        lines = line.split("|")
+        lines = tuple(lines)
+        all_data.append(lines)
+
 
     return all_data
 
+all_data("villagers.csv")
 
 def find_motto(filename, villager_name):
     """Return the villager's motto.
