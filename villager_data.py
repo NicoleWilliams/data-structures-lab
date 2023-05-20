@@ -12,10 +12,20 @@ def all_species(filename):
     """
 
     species = set()
+    data = open(filename)
+
+    for line in data:
+        lines = line.split("|")
+        species1 = lines[1]
+        species.add(species1)
 
     # TODO: replace this with your code
 
     return species
+
+
+# all_species("villagers.csv")
+
 
 
 def get_villagers_by_species(filename, search_string="All"):
@@ -30,10 +40,18 @@ def get_villagers_by_species(filename, search_string="All"):
     """
 
     villagers = []
+    data = open(filename)
+    for line in data:
+        lines = line.split("|")
+        names = lines[0]
+        villagers.append(names)
+        
 
     # TODO: replace this with your code
 
     return sorted(villagers)
+
+get_villagers_by_species("villagers.csv")
 
 
 def all_names_by_hobby(filename):
