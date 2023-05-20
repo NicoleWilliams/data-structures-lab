@@ -51,7 +51,7 @@ def get_villagers_by_species(filename, search_string="All"):
 
     return sorted(villagers)
 
-get_villagers_by_species("villagers.csv")
+# get_villagers_by_species("villagers.csv")
 
 
 def all_names_by_hobby(filename):
@@ -65,8 +65,47 @@ def all_names_by_hobby(filename):
     """
 
     # TODO: replace this with your code
+    data = open(filename)
+    hobbies = []
 
-    return []
+        # names = hobbies
+    fitness = []
+    fashion = []
+    nature = []
+    education = []
+    music = []
+    play = []
+
+    for line in data:
+        lines = line.split("|")
+        name = lines[0]
+        hobby = lines[3]
+
+        if hobby == "Nature":
+            nature.append(name)
+
+        if hobby == "Fitness":
+            fitness.append(name)
+
+        if hobby == "Fashion":
+            fashion.append(name)
+
+        if hobby == "Education":
+            education.append(name)
+
+        if hobby == "Music":
+            music.append(name)
+
+        if hobby == "Play":
+            play.append(name)
+
+
+    names_by_hobby = [sorted(fitness), sorted(fashion), sorted(nature), sorted(education), sorted(music), sorted(play)]
+
+
+    return names_by_hobby
+
+print(all_names_by_hobby("villagers.csv"))
 
 
 def all_data(filename):
