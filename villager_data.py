@@ -265,4 +265,29 @@ def villagers_who_like_cows(filename):
 
     return likes_cows
 
-villagers_who_like_cows("villagers.csv")
+# villagers_who_like_cows("villagers.csv")
+
+
+def species_that_start_with_a_vowel(filename):
+    """return a list of species which start with a vowel
+
+        Arguments:
+        - filename (str): the path to a data file
+
+    Return:
+        - a list a species which start with a vowel
+    """
+    lst_of_species = []
+
+    data = open(filename)
+
+    for line in data:
+        lines = line.split("|")
+        species = lines[1]
+
+        if species[0] in "AEIOU":
+            lst_of_species.append(species)
+
+    return lst_of_species
+
+(species_that_start_with_a_vowel("villagers.csv")
