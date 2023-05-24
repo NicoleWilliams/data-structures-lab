@@ -290,4 +290,33 @@ def species_that_start_with_a_vowel(filename):
 
     return lst_of_species
 
-(species_that_start_with_a_vowel("villagers.csv")
+# species_that_start_with_a_vowel("villagers.csv")
+
+
+def names_and_hobbies_start_with_same_letter(filename):
+    """return a list of villagers names, whose hobby starts with the 
+    same letter as their name
+
+        Arguments:
+        - filename (str): the path to a data file
+
+    Return:
+        - a list villagers names
+    """
+
+    villagers = []
+
+    data = open(filename)
+
+    for line in data:
+        lines = line.split("|")
+        name = lines[0]
+        hobby = lines[3]
+
+        if name[0] == hobby[0]:
+            villagers.append(name)
+
+
+    return villagers
+
+names_and_hobbies_start_with_same_letter("villagers.csv")
