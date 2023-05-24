@@ -196,7 +196,7 @@ def find_likeminded_villagers(filename, villager_name):
             break
 
     data = open(filename)
-    
+
     if villager_name_personality:
         for line in data:
             lines = line.split("|")
@@ -207,5 +207,27 @@ def find_likeminded_villagers(filename, villager_name):
                 
     return villagers 
 
+# print(find_likeminded_villagers("villagers.csv", "Wendy"))
 
-print(find_likeminded_villagers("villagers.csv", "Wendy"))
+
+def count_villagers_with_name_starting_with(filename, letter):
+    """returns a count of villagers whose name starts with a specific letter
+
+    Arguments:
+        - filename (str): the path to a data file"""
+    
+    data = open(filename)
+    lst_of_names = []
+
+    for line in data:
+        lines = line.split("|")
+        name = lines[0]
+
+        if name[0] == letter:
+            lst_of_names.append(name)
+            # return name
+        
+    count = len(lst_of_names)
+    return count
+
+count_villagers_with_name_starting_with("villagers.csv", "A")
