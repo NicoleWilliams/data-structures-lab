@@ -228,6 +228,7 @@ def count_villagers_with_name_starting_with(filename, letter):
             # return name
         
     count = len(lst_of_names)
+    # print(lst_of_names)
     return count
 
 count_villagers_with_name_starting_with("villagers.csv", "A")
