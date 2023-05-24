@@ -231,4 +231,38 @@ def count_villagers_with_name_starting_with(filename, letter):
     # print(lst_of_names)
     return count
 
-count_villagers_with_name_starting_with("villagers.csv", "A")
+# count_villagers_with_name_starting_with("villagers.csv", "A")
+
+
+def villagers_who_like_cows(filename):
+    """return a set of villagers whose motto's talk about cows
+
+        Arguments:
+        - filename (str): the path to a data file
+
+    Return:
+        - a set of villagers who like cows
+    """
+
+    likes_cows = set()
+    # make sure to account for singular cow and plural cows!
+
+    data = open(filename)
+
+    for line in data:
+        lines = line.split("|")
+        names = lines[0]
+        mottos = lines[4]
+        mottos = mottos.rstrip()
+        
+        motto_string = mottos.split(" ")
+        
+        if "cows" in motto_string \
+            or "cow" in motto_string \
+            or "cow." in motto_string \
+            or "cows." in motto_string:
+            likes_cows.add(names)
+
+    return likes_cows
+
+villagers_who_like_cows("villagers.csv")
