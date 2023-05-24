@@ -195,6 +195,8 @@ def find_likeminded_villagers(filename, villager_name):
             villager_name_personality = personality
             break
 
+    data = open(filename)
+    
     if villager_name_personality:
         for line in data:
             lines = line.split("|")
